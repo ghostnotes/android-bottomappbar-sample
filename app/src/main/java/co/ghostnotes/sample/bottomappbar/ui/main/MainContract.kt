@@ -8,6 +8,8 @@ interface MainContract {
         fun showToast(@StringRes resId: Int)
 
         fun showToast(message: String)
+
+        fun showBottomSheet()
     }
 
 }

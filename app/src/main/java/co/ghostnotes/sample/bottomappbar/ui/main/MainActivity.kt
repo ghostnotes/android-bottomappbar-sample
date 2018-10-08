@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         bottom_app_bar.replaceMenu(R.menu.bottomappbar)
-        bottom_app_bar.setNavigationOnClickListener(OnNavigationClickListener())
+        bottom_app_bar.setNavigationOnClickListener(OnNavigationClickListener(this))
         bottom_app_bar.setOnMenuItemClickListener(OnBottomMenuItemClickListener(this))
 
         fab.setOnClickListener(OnFabClickListener(this))
@@ -42,9 +42,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    internal class OnNavigationClickListener: View.OnClickListener {
+    override fun showBottomSheet() {
+        MainBottomSheet.newInstance().apply {
+            show(supportFragmentManager, this.tag)
+        }
+    }
+
+    internal class OnNavigationClickListener(private val view: MainContract.View): View.OnClickListener {
         override fun onClick(v: View) {
             Log.d(TAG, "### on navigation clicked.")
+            view.showBottomSheet()
         }
     }
 
