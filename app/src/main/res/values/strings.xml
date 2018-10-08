@@ -5,4 +5,9 @@
     <string name="action_map">Map</string>
     <string name="action_settings">Settings</string>
 
+    <string name="message_fab_clicked">Fab is clicked.</string>
+    <string name="message_favorite_clicked">Favorite is clicked.</string>
+    <string name="message_map_clicked">Map is clicked.</string>
+    <string name="message_settings_clicked">Settings is clicked.</string>
+
 </resources>
